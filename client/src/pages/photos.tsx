@@ -10,10 +10,10 @@ import type { Photo } from "@shared/schema";
 export default function PhotosPage() {
   const [, navigate] = useLocation();
   const { isAuthenticated, unlockApp } = useAuth();
-  const baseUrl = (window as any).__BASE_URL__ || '/';
+  //baseUrl variable removed
 
   const { data: photos } = useQuery<Photo[]>({
-    queryKey: [baseUrl + "api/photos"]
+    queryKey: ["api/photos"]
   });
 
   useEffect(() => {

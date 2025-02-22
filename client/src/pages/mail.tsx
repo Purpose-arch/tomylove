@@ -45,10 +45,9 @@ export default function MailPage() {
   const [, navigate] = useLocation();
   const { isAuthenticated, unlockApp } = useAuth();
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
-  const baseUrl = (window as any).__BASE_URL__ || '/';
 
   const { data: messages } = useQuery<Message[]>({
-    queryKey: [baseUrl + "api/messages"]
+    queryKey: ["api/messages"]
   });
 
   useEffect(() => {
