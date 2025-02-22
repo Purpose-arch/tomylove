@@ -1,6 +1,10 @@
 import { QueryClient, QueryFunction } from "@tanstack/react-query";
 
-const baseUrl = import.meta.env.VITE_BASE_URL || '/';
+// Use relative paths for API endpoints
+const getApiUrl = (path: string) => {
+  const base = import.meta.env.MODE === 'production' ? './' : '/';
+  return `${base}${path}`.replace(/\/\//g, '/');
+};
 
 async function throwIfResNotOk(res: Response) {
   if (!res.ok) {
@@ -14,8 +18,7 @@ export async function apiRequest(
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
-  // Ensure URL starts with base URL
-  const fullUrl = url.startsWith('http') ? url : `${baseUrl}${url}`;
+  const fullUrl = getApiUrl(url);
 
   const res = await fetch(fullUrl, {
     method,
@@ -35,8 +38,7 @@ export const getQueryFn: <T>(options: {
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
     const url = queryKey[0] as string;
-    // Ensure URL starts with base URL
-    const fullUrl = url.startsWith('http') ? url : `${baseUrl}${url}`;
+    const fullUrl = getApiUrl(url);
 
     const res = await fetch(fullUrl, {
       credentials: "include",

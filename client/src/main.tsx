@@ -2,8 +2,12 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 
-// Use the base URL from environment variables
-const baseUrl = import.meta.env.VITE_BASE_URL || '/';
+// Configure base URL for assets and API calls
+const isDev = import.meta.env.MODE === 'development';
+const baseUrl = isDev ? '/' : './';
 document.documentElement.style.setProperty('--base-url', baseUrl);
 
-createRoot(document.getElementById("root")!).render(<App />);
+// Mount the app
+const root = document.getElementById("root");
+if (!root) throw new Error('Root element not found');
+createRoot(root).render(<App />);
