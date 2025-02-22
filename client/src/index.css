@@ -9,5 +9,33 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    background-color: #FFF0F5;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 32.6c1.2 1 2.7 1.7 4.2 1.7 3.8 0 6.8-3.1 6.8-6.8 0-3.8-3.1-6.8-6.8-6.8-1.6 0-3 .5-4.2 1.5-1.2-1-2.7-1.5-4.2-1.5-3.8 0-6.8 3.1-6.8 6.8 0 3.8 3 6.8 6.8 6.8 1.5 0 3-.7 4.2-1.7z' fill='%23FFB6C1' fill-opacity='0.2'/%3E%3C/svg%3E");
+  }
+}
+
+.love-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.floating-heart {
+  position: absolute;
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.6;
+  color: #FF69B4;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100%) translateX(-50%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100%) translateX(50%);
+    opacity: 0;
   }
 }
