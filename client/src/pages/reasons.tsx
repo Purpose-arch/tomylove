@@ -10,9 +10,10 @@ import type { Reason } from "@shared/schema";
 export default function ReasonsPage() {
   const [, navigate] = useLocation();
   const { isAuthenticated, unlockApp } = useAuth();
+  const baseUrl = (window as any).__BASE_URL__ || '/';
 
   const { data: reasons } = useQuery<Reason[]>({
-    queryKey: ["/api/reasons"]
+    queryKey: [baseUrl + "api/reasons"]
   });
 
   useEffect(() => {

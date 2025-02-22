@@ -10,9 +10,10 @@ import type { Photo } from "@shared/schema";
 export default function PhotosPage() {
   const [, navigate] = useLocation();
   const { isAuthenticated, unlockApp } = useAuth();
+  const baseUrl = (window as any).__BASE_URL__ || '/';
 
   const { data: photos } = useQuery<Photo[]>({
-    queryKey: ["/api/photos"]
+    queryKey: [baseUrl + "api/photos"]
   });
 
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function PhotosPage() {
   }, [isAuthenticated, navigate, unlockApp]);
 
   return (
-    <div className="min-h-screen bg-[#F2F2F7] p-4">
+    <div className="min-h-screen bg-[#FFF0F5] p-4">
       <div className="max-w-2xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-2xl font-semibold">Photos</h1>
