@@ -18,29 +18,25 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#FFF0F5] p-8">
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+      <div className="grid grid-cols-2 gap-8 max-w-2xl mx-auto">
         <IOSHomeIcon
           href="/reasons"
-          icon={<Heart className="w-8 h-8 text-pink-500 fill-current" />}
-          label="Reasons"
+          icon={<Heart className="w-12 h-12 text-pink-500 fill-current" />}
         />
         <IOSHomeIcon
           href="/photos"
-          icon={<Camera className="w-8 h-8 text-pink-400" />}
-          label="Photos"
+          icon={<Camera className="w-12 h-12 text-pink-400" />}
         />
         <IOSHomeIcon
           href="/mail"
-          icon={<Mail className="w-8 h-8 text-pink-600" />}
-          label="Mail"
+          icon={<Mail className="w-12 h-12 text-pink-600" />}
         />
         <IOSHomeIcon
           href={isUnlocked ? "/locked" : "#"}
           icon={isUnlocked ? 
-            <Unlock className="w-8 h-8 text-pink-500" /> : 
-            <Lock className="w-8 h-8 text-gray-500" />
+            <Unlock className="w-12 h-12 text-pink-500" /> : 
+            <Lock className="w-12 h-12 text-gray-400" />
           }
-          label={isUnlocked ? "Open" : "Locked"}
           className={!isUnlocked ? "opacity-50" : ""}
         />
       </div>

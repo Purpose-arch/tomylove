@@ -31,7 +31,7 @@ export function IOSPinPad({ onSubmit }: IOSPinPadProps) {
           <motion.div
             key={i}
             className={`w-4 h-4 rounded-full ${
-              pin.length > i ? "bg-[#007AFF]" : "bg-[#D1D1D6]"
+              pin.length > i ? "bg-pink-500" : "bg-pink-200"
             }`}
             animate={{
               scale: pin.length > i ? [1, 1.2, 1] : 1
@@ -39,13 +39,13 @@ export function IOSPinPad({ onSubmit }: IOSPinPadProps) {
           />
         ))}
       </div>
-      
+
       <div className="grid grid-cols-3 gap-4">
         {[1,2,3,4,5,6,7,8,9].map(num => (
           <IOSButton
             key={num}
             variant="ghost"
-            className="h-16 text-2xl"
+            className="h-16 text-2xl text-pink-600 hover:bg-pink-50"
             onClick={() => handleNumberPress(num.toString())}
           >
             {num}
@@ -53,14 +53,14 @@ export function IOSPinPad({ onSubmit }: IOSPinPadProps) {
         ))}
         <IOSButton
           variant="ghost"
-          className="h-16 text-2xl"
+          className="h-16 text-2xl text-pink-600 hover:bg-pink-50"
           onClick={() => handleDelete()}
         >
           ⌫
         </IOSButton>
         <IOSButton
           variant="ghost"
-          className="h-16 text-2xl"
+          className="h-16 text-2xl text-pink-600 hover:bg-pink-50"
           onClick={() => handleNumberPress("0")}
         >
           0

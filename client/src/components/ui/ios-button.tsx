@@ -16,9 +16,9 @@ const IOSButton = forwardRef<HTMLButtonElement, IOSButtonProps>(
         size={size}
         className={cn(
           "rounded-full font-medium",
-          variant === "default" && "bg-[#007AFF] text-white hover:bg-[#0071E3]",
-          variant === "secondary" && "bg-[#F2F2F7] text-[#007AFF] hover:bg-[#E5E5EA]",
-          variant === "ghost" && "text-[#007AFF] hover:bg-[#F2F2F7]",
+          variant === "default" && "bg-pink-500 text-white hover:bg-pink-600",
+          variant === "secondary" && "bg-pink-100 text-pink-500 hover:bg-pink-200",
+          variant === "ghost" && "text-pink-500 hover:bg-pink-50",
           className
         )}
         {...props}

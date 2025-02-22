@@ -4,12 +4,11 @@ import { Link } from "wouter";
 
 interface IOSHomeIconProps {
   icon: React.ReactNode;
-  label: string;
   href: string;
   className?: string;
 }
 
-export function IOSHomeIcon({ icon, label, href, className }: IOSHomeIconProps) {
+export function IOSHomeIcon({ icon, href, className }: IOSHomeIconProps) {
   return (
     <Link href={href}>
       <motion.a
@@ -20,10 +19,9 @@ export function IOSHomeIcon({ icon, label, href, className }: IOSHomeIconProps) 
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
       >
-        <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center shadow-sm">
+        <div className="w-24 h-24 rounded-3xl bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-lg border border-pink-100">
           {icon}
         </div>
-        <span className="text-xs text-[#000000]">{label}</span>
       </motion.a>
     </Link>
   );
